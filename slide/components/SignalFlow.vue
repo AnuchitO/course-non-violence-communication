@@ -59,6 +59,7 @@ const play = computed(() =>
   height: 47.4%;
   object-fit: contain;
 }
+html.dark .sf-person { filter: invert(0.92); }
 .sf-person.sender { left: 15.38%; top: 30.74%; }
 .sf-person.receiver { left: 73.64%; top: 32.09%; }
 
@@ -74,11 +75,11 @@ const play = computed(() =>
   font-weight: 600;
   font-size: 1.15rem;
   line-height: 1.2;
-  color: #1d2a30;
-  background: linear-gradient(160deg, #fff27a, #ffd93d);
-  border: 2px solid #1d2a30;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 #1d2a30;
+  color: #12305c;
+  background: linear-gradient(160deg, #ffffff, #dcebff);
+  border: 2px solid #8fb8f3;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
 }
 .sf-box.send { left: 29%; }
 .sf-box.receive { left: 60.64%; }
@@ -92,12 +93,12 @@ const play = computed(() =>
   overflow: visible;
 }
 .sf-arrow line {
-  stroke: var(--nvc-ink);
+  stroke: var(--ink);
   stroke-width: 2.5;
   stroke-dasharray: 130;
   stroke-dashoffset: 0;
 }
-.sf-arrow polygon { fill: var(--nvc-ink); }
+.sf-arrow polygon { fill: var(--ink); }
 
 .sf-message {
   position: absolute;
@@ -107,7 +108,8 @@ const play = computed(() =>
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.35;
-  color: var(--nvc-teal);
+  color: var(--ink);
+  font-family: var(--serif);
   font-weight: 500;
   font-style: italic;
 }
@@ -118,8 +120,8 @@ const play = computed(() =>
   width: 21.14%;
   text-align: center;
   font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--nvc-teal);
+  font-weight: 800;
+  color: var(--m);
 }
 .sf-label.left { left: 12.2%; }
 .sf-label.right { left: 70.6%; }

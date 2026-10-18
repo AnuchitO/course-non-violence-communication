@@ -39,16 +39,16 @@ const puffs = [
   width: 100%;
   height: 100%;
   overflow: visible;
-  filter: drop-shadow(0 6px 14px rgba(0, 61, 79, 0.12));
+  filter: drop-shadow(0 6px 14px rgba(30, 80, 160, 0.12));
 }
 .cloud-outline circle,
 .cloud-tail circle {
-  fill: #fff;
-  stroke: #9aa9ae;
+  fill: var(--card, #fff);
+  stroke: #bcd2ef;
   stroke-width: 5;
 }
 .cloud-fill circle {
-  fill: #fff;
+  fill: var(--card, #fff);
 }
 .cloud-text {
   position: absolute;
@@ -62,7 +62,7 @@ const puffs = [
   text-align: center;
   font-size: 1rem;
   line-height: 1.25;
-  color: var(--nvc-ink);
+  color: var(--ink);
   font-weight: 500;
 }
 </style>

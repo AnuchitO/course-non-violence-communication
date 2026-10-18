@@ -13,10 +13,10 @@ const play = computed(() =>
 const R = 150
 const C = 200
 const nodes = [
-  { label: 'Observations', angle: 0, color: 'var(--nvc-amber)' },
-  { label: 'Feelings', angle: 90, color: 'var(--nvc-teal)' },
-  { label: 'Needs', angle: 180, color: 'var(--nvc-pink)' },
-  { label: 'Requests', angle: 270, color: 'var(--nvc-purple)' },
+  { label: 'Observations', angle: 0, color: 'var(--c-obs)' },
+  { label: 'Feelings', angle: 90, color: 'var(--c-feel)' },
+  { label: 'Needs', angle: 180, color: 'var(--c-need)' },
+  { label: 'Requests', angle: 270, color: 'var(--c-req)' },
 ].map((n, i) => {
   const rad = (n.angle * Math.PI) / 180
   const x = C + R * Math.sin(rad)
@@ -41,7 +41,7 @@ const arrows = [45, 135, 225, 315].map((a) => {
     </g>
     <text class="center" :x="C" :y="C + 12" text-anchor="middle">NVC</text>
     <g v-for="n in nodes" :key="n.label" class="node" :style="{ '--d': `${0.3 + n.i * 0.35}s` }">
-      <circle :cx="n.x" :cy="n.y" r="11" :fill="n.color" />
+      <circle :cx="n.x" :cy="n.y" r="13" :fill="n.color" />
       <text :x="n.lx" :y="n.ly" :text-anchor="n.anchor">{{ n.label }}</text>
     </g>
   </svg>
@@ -51,15 +51,15 @@ const arrows = [45, 135, 225, 315].map((a) => {
 .cycle { width: 100%; height: 100%; overflow: visible; }
 .ring {
   fill: none;
-  stroke: var(--nvc-pink);
+  stroke: var(--m);
   stroke-width: 3;
   stroke-dasharray: 943;
   transform: rotate(-90deg);
   transform-origin: 200px 200px;
 }
-.arrow polygon { fill: var(--nvc-pink); }
-.center { font-family: Bitter, serif; font-weight: 700; font-size: 36px; fill: var(--nvc-teal); }
-.node text { font-size: 20px; font-weight: 600; fill: var(--nvc-ink); }
+.arrow polygon { fill: var(--m); }
+.center { font-family: Inter, sans-serif; font-weight: 800; font-size: 40px; fill: var(--ink); }
+.node text { font-size: 20px; font-weight: 700; fill: var(--ink); }
 
 .play .ring { animation: ring-draw 1.6s ease-in-out both; }
 .play .arrow { animation: fade .3s ease-out 1.5s both; }

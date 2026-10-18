@@ -11,6 +11,7 @@ npm run export   # PDF (needs playwright-chromium)
 
 - `slides.md` — every slide, in original order, marked `<!-- Slide N -->`. Speaker notes are the last `<!-- -->` comment on each slide.
 - Slides that were **skipped** in Google Slides (5, 13–17, 28, 36, 44–46, 56) have `hide: true`. Set it to `false` to show them.
+- **Style** follows the Playwright workshop deck: each slide has `module: N` (a talk section), `global-top.vue` draws the section progress bar and sets the section colour `--m`, headings get a colour bar. Sections, colours and Thai labels live in `setup/sections.ts`; the warm palette (light + dark) is in `style.css`.
 - `components/SignalFlow.vue` — animated "Send signal → Receive signal" diagram (slides 2–4, 37–38, 57–58).
 - `components/NvcCycle.vue` — animated Observations → Feelings → Needs → Requests cycle (slide 54).
 - `public/images/` — all images from the original deck.

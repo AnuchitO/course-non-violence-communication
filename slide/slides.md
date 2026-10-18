@@ -1,4 +1,5 @@
 ---
+module: 0
 theme: default
 title: Nonviolent Communication
 info: |
@@ -6,17 +7,17 @@ info: |
   AnuchitO — converted from the Google Slides deck "[TW] Nonviolence Communication".
   Slides marked `hide: true` were "skipped" in the original deck — set to `false` to show them.
 author: AnuchitO
-colorSchema: light
+colorSchema: auto
 aspectRatio: 16/9
 canvasWidth: 980
-transition: slide-left
+transition: fade
 mdc: true
 drawings:
   persist: false
 fonts:
-  sans: Inter,Noto Sans Thai
-  serif: Bitter
-  weights: '300,400,500,600,700'
+  sans: Inter,Sarabun
+  serif: Fraunces
+  weights: '300,400,500,600,700,800'
 layout: cover
 class: dark-slide text-left
 ---
@@ -33,6 +34,7 @@ Understand 2 things  feeling, needs, request, observation
 -->
 
 ---
+module: 0
 transition: fade
 ---
 
@@ -41,6 +43,7 @@ transition: fade
 <SignalFlow message="“Encoded Message”" />
 
 ---
+module: 0
 transition: fade
 ---
 
@@ -49,12 +52,15 @@ transition: fade
 <SignalFlow sender-label="More power" receiver-label="Less power" receiver-thought="He/She blames me" />
 
 ---
+module: 0
+---
 
 <!-- Slide 4 -->
 
 <SignalFlow sender-label="Less power" receiver-label="More power" receiver-thought="Complain again.." />
 
 ---
+module: 0
 hide: true
 ---
 
@@ -71,6 +77,7 @@ Draw human encode decode
 -->
 
 ---
+module: 1
 layout: cover
 class: dark-slide text-left
 transition: fade-out
@@ -85,6 +92,7 @@ transition: fade-out
 <img src="/images/anuchito-logo.png" class="brand-logo" alt="AnuchitO">
 
 ---
+module: 1
 layout: image-right
 image: /images/jackal.jpg
 class: dark-slide
@@ -105,6 +113,7 @@ class: dark-slide
 -->
 
 ---
+module: 1
 layout: image-right
 image: /images/giraffe.jpg
 class: dark-slide
@@ -124,6 +133,7 @@ class: dark-slide
 -->
 
 ---
+module: 2
 layout: cover
 class: dark-slide text-left
 transition: fade-out
@@ -141,20 +151,23 @@ Understand 2 things  feeling, needs, request, observation
 -->
 
 ---
+module: 2
+---
 
 <!-- Slide 10 -->
 
 # NVC Components
 
 <div class="components-row">
-  <div class="c-amber" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 150 } }"><span class="num">1.</span>Observation</div>
-  <div class="c-teal" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 350 } }"><span class="num">2.</span>Feelings</div>
-  <div class="c-pink" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 550 } }"><span class="num">3.</span>Needs</div>
-  <div class="c-purple" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 750 } }"><span class="num">4.</span>Requests</div>
+  <div class="c-obs" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 150 } }"><span class="num">1.</span>Observation</div>
+  <div class="c-feel" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 350 } }"><span class="num">2.</span>Feelings</div>
+  <div class="c-need" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 550 } }"><span class="num">3.</span>Needs</div>
+  <div class="c-req" v-motion :initial="{ opacity: 0, y: 60 }" :enter="{ opacity: 1, y: 0, transition: { delay: 750 } }"><span class="num">4.</span>Requests</div>
 </div>
 
-<div class="footer-note">© 2021 Thoughtworks</div>
 
+---
+module: 2
 ---
 
 <!-- Slide 11 -->
@@ -171,41 +184,43 @@ Understand 2 things  feeling, needs, request, observation
 </v-clicks>
 
 ---
+module: 2
+---
 
 <!-- Slide 12 -->
 
 # NVC Components
 
 <div class="compare-grid">
-  <div class="c-amber">
+  <div class="c-obs">
     <span>Observation</span>
     <span class="neq" v-click="1">≠</span>
     <span v-click="1">Interpretation</span>
   </div>
-  <div class="c-teal">
+  <div class="c-feel">
     <span>Feelings</span>
     <span class="neq" v-click="2">≠</span>
     <span v-click="2">Thinking</span>
   </div>
-  <div class="c-pink">
+  <div class="c-need">
     <span>Needs</span>
     <span class="neq" v-click="3">≠</span>
     <span v-click="3">How</span>
   </div>
-  <div class="c-purple">
+  <div class="c-req">
     <span>Requests</span>
     <span class="neq" v-click="4">≠</span>
     <span v-click="4">Commands/Demands</span>
   </div>
 </div>
 
-<div class="footer-note">© 2021 Thoughtworks</div>
 
 <!--
 Compare 2 concepts. Some are obvious , some are not
 -->
 
 ---
+module: 2
 hide: true
 ---
 
@@ -224,6 +239,7 @@ Draw human encode decode
 -->
 
 ---
+module: 2
 hide: true
 layout: two-cols
 layoutClass: gap-10
@@ -251,6 +267,7 @@ Don’t Judge
 </div>
 
 ---
+module: 2
 hide: true
 layout: two-cols
 layoutClass: gap-10
@@ -276,6 +293,7 @@ Put in words how you feel about it
 </div>
 
 ---
+module: 2
 hide: true
 layout: two-cols
 layoutClass: gap-10
@@ -304,6 +322,7 @@ What you would appreciate to see respected
 </div>
 
 ---
+module: 2
 hide: true
 layout: two-cols
 layoutClass: gap-10
@@ -326,6 +345,7 @@ Point out unambiguously
 </div>
 
 ---
+module: 3
 transition: fade
 ---
 
@@ -341,8 +361,11 @@ What do you see ?
 -->
 
 ---
+module: 3
+---
 
 <!-- Slide 19 -->
+<!-- The original slide showed this video (thumbnail: public/images/observation-video.jpg) -->
 
 <div class="photo-center">
   <Youtube id="8mtURc7mkUg?start=82" width="760" height="428" />
@@ -351,10 +374,10 @@ What do you see ?
 <!--
 https://www.youtube.com/watch?time_continue=82&v=8mtURc7mkUg
 What do you see ?
-(Original slide showed this video — thumbnail saved at public/images/observation-video.jpg)
 -->
 
 ---
+module: 3
 layout: cover
 background: /images/kids-observing.jpg
 class: text-left photo-cover
@@ -376,6 +399,7 @@ Interpretation is not always bad.
 -->
 
 ---
+module: 3
 class: quiz
 ---
 
@@ -386,6 +410,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Lately we are so distant”</div>
 
 ---
+module: 3
 class: quiz
 ---
 
@@ -396,6 +421,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“You didn’t send the report to me”</div>
 
 ---
+module: 3
 class: quiz
 ---
 
@@ -406,6 +432,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“You always come to meeting late”</div>
 
 ---
+module: 3
 class: quiz
 ---
 
@@ -415,6 +442,8 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Customer is too picky”</div>
 
+---
+module: 3
 ---
 
 <!-- Slide 25 -->
@@ -428,6 +457,8 @@ SBI
 -->
 
 ---
+module: 4
+---
 
 <!-- Slide 26 -->
 
@@ -440,11 +471,16 @@ https://www.cnvc.org/Training/feelings-inventory
 -->
 
 ---
+module: 4
+---
 
 <!-- Slide 27 -->
 
-<div class="flex flex-col items-center h-full">
-  <img src="/images/wheel-of-emotions.png" class="h-[86%]" alt="Wheel of emotions" v-motion :initial="{ opacity: 0, rotate: -40, scale: 0.8 }" :enter="{ opacity: 1, rotate: 0, scale: 1, transition: { duration: 1000 } }">
+<!-- Redrawn as SVG from https://i.pinimg.com/originals/11/01/73/1101739e7f0b286c5b516e4a48a385f2.jpg -->
+<div class="absolute inset-0 flex flex-col items-center pt-9 pb-2">
+  <div class="flex-1 min-h-0 aspect-square">
+    <FeelingWheel />
+  </div>
   <div class="source-url mt-2"><a href="https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A" target="_blank">https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A</a></div>
 </div>
 
@@ -455,15 +491,36 @@ Anger, Sadness, Fear. Joy
 -->
 
 ---
+module: 4
+---
+
+<!-- Added: Thai version of slide 27 (วงล้อความรู้สึก) -->
+<div class="absolute inset-0 flex flex-col items-center pt-9 pb-2">
+  <div class="flex-1 min-h-0 aspect-square">
+    <FeelingWheel lang="th" />
+  </div>
+  <div class="source-url mt-2"><a href="https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A" target="_blank">https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A</a></div>
+</div>
+
+<!--
+วงล้อความรู้สึก (ฉบับภาษาไทย) — คำแปลเดียวกับวงล้อภาษาอังกฤษในสไลด์ก่อนหน้า
+ชี้ที่คำเพื่อเน้น (แผงด้านซ้ายแสดงคำไทยพร้อมคำภาษาอังกฤษ) · คลิกเพื่อซูมหมวด · กด Esc เพื่อกลับ
+
+โกรธ · เศร้า · กลัว · มีความสุข (Anger, Sadness, Fear. Joy)
+-->
+
+---
+module: 4
 hide: true
 layout: center
 ---
 
 <!-- Slide 28 — SKIPPED in the original deck -->
 
-<div class="text-5xl font-serif text-[var(--nvc-teal)]">What do you feel right now ?</div>
+<div class="text-5xl" style="font-family: var(--serif)">What do you feel right now ?</div>
 
 ---
+module: 4
 class: quiz
 ---
 
@@ -474,6 +531,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I am confused”</div>
 
 ---
+module: 4
 class: quiz
 ---
 
@@ -484,6 +542,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel like I was blamed”</div>
 
 ---
+module: 4
 class: quiz
 ---
 
@@ -494,6 +553,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I didn’t feel right”</div>
 
 ---
+module: 4
 class: quiz
 ---
 
@@ -504,6 +564,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel like you don’t love me”</div>
 
 ---
+module: 4
 class: quiz
 ---
 
@@ -514,31 +575,34 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel abandoned”</div>
 
 ---
+module: 4
+---
 
 <!-- Slide 34 -->
 
 # Faux feeling = Feeling + Judgement
 
 <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-8 mt-16">
-  <div class="text-4xl font-serif text-center text-[var(--nvc-teal)]">“I feel...”</div>
-  <svg v-click width="140" height="24" viewBox="0 0 140 24"><line x1="2" y1="12" x2="122" y2="12" stroke="#1d2a30" stroke-width="2.5"/><polygon points="120,4 138,12 120,20" fill="#1d2a30"/></svg>
+  <div class="text-4xl text-center" style="font-family: var(--serif)">“I feel...”</div>
+  <svg v-click width="140" height="24" viewBox="0 0 140 24"><line x1="2" y1="12" x2="122" y2="12" stroke="currentColor" stroke-width="2.5"/><polygon points="120,4 138,12 120,20" fill="currentColor"/></svg>
   <div v-click class="text-3xl text-center leading-relaxed">
-    <div class="text-[var(--nvc-amber)]">Thinking</div>
-    <div class="text-[var(--nvc-pink)]">Judgement</div>
-    <div class="text-[var(--nvc-purple)]">Criticizing</div>
+    <div class="label-bad">Thinking</div>
+    <div class="label-bad">Judgement</div>
+    <div class="label-bad">Criticizing</div>
   </div>
 </div>
 
 ---
+module: 4
+---
 
 <!-- Slide 35 -->
 
-<div class="flex flex-col items-center h-full">
-  <img src="/images/faux-feelings.png" class="h-[90%] rounded-lg shadow-lg" alt="Faux feelings table" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { duration: 700 } }">
-  <div class="source-url mt-3"><a href="http://compassionateinteractions.com/resources/index.php?content=faux" target="_blank">http://compassionateinteractions.com/resources/index.php?content=faux</a></div>
-</div>
+<!-- Redrawn as live text from the original screenshot (public/images/faux-feelings.png) -->
+<FauxFeelings />
 
 ---
+module: 4
 hide: true
 layout: image-right
 image: /images/plato.png
@@ -550,14 +614,15 @@ backgroundSize: contain
 # PLATO
 
 <ul class="plato-list">
-  <li><span class="letter c-amber">P</span> = People</li>
-  <li><span class="letter c-teal">L</span> = Location</li>
-  <li><span class="letter c-pink">A</span> = Action</li>
-  <li><span class="letter c-purple">T</span> = Time</li>
-  <li><span class="letter c-amber">O</span> = Object</li>
+  <li><span class="letter c-obs">P</span> = People</li>
+  <li><span class="letter c-feel">L</span> = Location</li>
+  <li><span class="letter c-need">A</span> = Action</li>
+  <li><span class="letter c-req">T</span> = Time</li>
+  <li><span class="letter c-obs">O</span> = Object</li>
 </ul>
 
 ---
+module: 4
 transition: fade
 ---
 
@@ -566,11 +631,15 @@ transition: fade
 <SignalFlow sender-label="Wife" receiver-label="Husband" sender-thought="I’m worried about you" receiver-thought="She blame me" message="“I feel that you come back home late lately”" />
 
 ---
+module: 4
+---
 
 <!-- Slide 38 -->
 
 <SignalFlow sender-label="Wife" receiver-label="Husband" sender-thought="I’m worried about you" receiver-thought="She worries" message="“When you come home after 2 am, I’m worried about you”" />
 
+---
+module: 5
 ---
 
 <!-- Slide 39 -->
@@ -588,6 +657,7 @@ Be responsible for what you want.
 -->
 
 ---
+module: 5
 class: quiz
 ---
 
@@ -598,6 +668,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I need you to send the report by Friday”</div>
 
 ---
+module: 5
 class: quiz
 ---
 
@@ -608,6 +679,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Somsri needs empathy”</div>
 
 ---
+module: 5
 class: quiz
 ---
 
@@ -618,6 +690,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I need money”</div>
 
 ---
+module: 5
 class: quiz
 ---
 
@@ -628,6 +701,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“We don’t want heartless people”</div>
 
 ---
+module: 5
 hide: true
 ---
 
@@ -643,6 +717,7 @@ Flipchart
 -->
 
 ---
+module: 5
 hide: true
 ---
 
@@ -651,6 +726,7 @@ hide: true
 # Story: Husband back home at late night
 
 ---
+module: 5
 hide: true
 ---
 
@@ -661,6 +737,7 @@ hide: true
 Share with the group (if you don’t mind)
 
 ---
+module: 5
 layout: image-right
 image: /images/plato.png
 backgroundSize: contain
@@ -671,13 +748,93 @@ backgroundSize: contain
 # PLATO
 
 <ul class="plato-list">
-  <li v-click><span class="letter c-amber">P</span> = People</li>
-  <li v-click><span class="letter c-teal">L</span> = Location</li>
-  <li v-click><span class="letter c-pink">A</span> = Action</li>
-  <li v-click><span class="letter c-purple">T</span> = Time</li>
-  <li v-click><span class="letter c-amber">O</span> = Object</li>
+  <li v-click><span class="letter c-obs">P</span> = People</li>
+  <li v-click><span class="letter c-feel">L</span> = Location</li>
+  <li v-click><span class="letter c-need">A</span> = Action</li>
+  <li v-click><span class="letter c-req">T</span> = Time</li>
+  <li v-click><span class="letter c-obs">O</span> = Object</li>
 </ul>
 
+<!--
+PLATO = Person, Location, Action, Time, Object.
+
+- PLATO is a test for NEEDS vs STRATEGIES (Miki Kashtan, NVC trainer): "If you have any one of those five in what you are imagining is a need, you know that it is a strategy."
+- In NVC (Rosenberg) a need is universal — connection, safety, trust, respect, autonomy, understanding, consideration… It makes no reference to any specific person doing any specific thing.
+- So: PLATO in it → strategy (or request). No PLATO → you are closer to the need.
+- E.g. "I need you to reply to my messages quickly" has PLATO (you, reply, quickly, messages) → strategy. The need under it: connection / reassurance.
+- No PLATO is not enough on its own: also check it is something every human needs and that it feels deep and true for you.
+- Requests are the opposite: they SHOULD be specific (who, what, when) so they are doable.
+- Tip: take the PLATO away and ask "what would this give me?" — what is left is the need.
+-->
+
+---
+module: 5
+---
+
+<!-- Added: PLATO worked example (1/2) -->
+
+# Need or strategy? The PLATO test
+
+<div class="ex-sentence" v-motion :initial="{ opacity: 0, y: 16 }" :enter="{ opacity: 1, y: 0, transition: { delay: 150 } }"><span class="pill obs">Observation</span> “My partner comes home late every night without telling me.”</div>
+
+<div v-click class="claim"><span class="pill feel">Feeling</span> I feel worried and frustrated. <span class="claim-need">… and I <b>need</b> you to text me before 9 pm.</span></div>
+
+<div class="plato-check">
+  <div v-click class="chk hit"><span class="letter c-req">P</span><b>Person</b><span>you</span></div>
+  <div v-click class="chk"><span class="letter c-req">L</span><b>Location</b><span>—</span></div>
+  <div v-click class="chk hit"><span class="letter c-req">A</span><b>Action</b><span>text me</span></div>
+  <div v-click class="chk hit"><span class="letter c-req">T</span><b>Time</b><span>before 9 pm</span></div>
+  <div v-click class="chk hit"><span class="letter c-req">O</span><b>Object</b><span>a text message</span></div>
+</div>
+
+<div v-click class="verdict">Has PLATO → this is a <b>strategy</b>, not a need.</div>
+
+<div class="result-grid">
+  <div v-click class="res need"><span class="pill need">Need · no PLATO</span><div>Safety, trust, consideration</div></div>
+  <div v-click class="res req"><span class="pill req">Request · specific on purpose</span><div>“Would you be willing to text me when you’ll be home after 9 pm?”</div></div>
+</div>
+
+<!--
+Situation (observation): my partner comes home late every night without telling me.
+"I need you to text me before 9 pm" sounds like a need, but run the PLATO test: Person (you), Action (text me), Time (before 9 pm), Object (a text message) → it is a strategy.
+Take the PLATO away and ask "what would that give me?" → safety, trust, consideration. That is the need: universal, no PLATO.
+The strategy is not wrong — offer it as a request. Requests should be specific (PLATO helps here) and the other person can say no.
+-->
+
+---
+module: 5
+---
+
+<!-- Added: PLATO worked example (2/2) -->
+
+# Is it a real need?
+
+<div class="compare-list quiz-mode">
+  <div class="row"><span class="flip"><span v-click.hide="1" class="pill ask">?</span><span v-click="1" class="pill obs">Observation</span></span><span class="q">“I haven’t seen a reply to my message since yesterday.”</span></div>
+  <div class="row"><span class="flip"><span v-click.hide="2" class="pill ask">?</span><span v-click="2" class="pill bad">Interpretation</span></span><span class="q">“You don’t care about me.”</span></div>
+  <div class="row"><span class="flip"><span v-click.hide="3" class="pill ask">?</span><span v-click="3" class="pill feel">Feeling</span></span><span class="q">“I feel sad.”</span></div>
+  <div class="row"><span class="flip"><span v-click.hide="4" class="pill ask">?</span><span v-click="4" class="pill need">Need</span></span><span class="q">“I need connection and reassurance.” <em v-click="4" class="tagnote">no PLATO</em></span></div>
+  <div class="row"><span class="flip"><span v-click.hide="5" class="pill ask">?</span><span v-click="5" class="pill req">Strategy</span></span><span class="q">“I want you to reply to my messages quickly.” <em v-click="5" class="tagnote">PLATO: you · reply · quickly</em></span></div>
+</div>
+
+<div v-click="6" class="need-callout">
+  <div class="answer">✓ The real need: <b>connection</b> and <b>reassurance</b> — “reply quickly” is just one strategy to meet it.</div>
+  A need never names a person, place, action, time or object. If you can find PLATO in it, it is a strategy — look underneath it for the need.
+  <div class="chips"><span class="on">Connection</span><span class="on">Reassurance</span><span>Safety</span><span>Trust</span><span>Respect</span><span>Autonomy</span><span>Understanding</span><span>Consideration</span></div>
+</div>
+
+<!--
+Quiz: show the five sentences, ask the audience which is which, then click to reveal each label.
+- “I haven’t seen a reply to my message since yesterday.” → Observation: an I-message that only says what I noticed, no blame.
+- “You don’t care about me.” → Interpretation (a story about the other person).
+- “I feel sad.” → Feeling.
+- “I need connection and reassurance.” → Need: no PLATO in it.
+- “I want you to reply to my messages quickly.” → Strategy: has PLATO (you · reply · quickly).
+Last click reveals the answer: the real need is connection and reassurance. Wanting a quick reply is one strategy to meet it — turn it into a clear request, e.g. “Would you be willing to send me a short message when you’ve seen mine, even if you can’t answer yet?”
+-->
+
+---
+module: 6
 ---
 
 <!-- Slide 48 -->
@@ -698,6 +855,7 @@ The main thing that’s the difference between request or demand it not how nice
 -->
 
 ---
+module: 6
 layout: cover
 class: dark-slide text-left
 transition: fade-out
@@ -710,12 +868,14 @@ transition: fade-out
 <!--
 Goal: 🙏 😃
 One person action (Actor) go to break out room, other tell
-Finish first come backDon’t
+Finish first come back
+Don’t 
 You should not …
 You don’t …
 -->
 
 ---
+module: 6
 class: quiz
 ---
 
@@ -726,6 +886,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Please understand me”</div>
 
 ---
+module: 6
 class: quiz
 ---
 
@@ -736,6 +897,7 @@ class: quiz
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Let me be myself”</div>
 
 ---
+module: 6
 class: quiz
 ---
 
@@ -745,6 +907,8 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Can I discuss with you<br>about measurement plan<br>for half an hour?”</div>
 
+---
+module: 6
 ---
 
 <!-- Slide 53 -->
@@ -761,8 +925,11 @@ Ask clearly what you want to satisfy your need
 </v-clicks>
 
 ---
+module: 7
+---
 
 <!-- Slide 54 -->
+<!-- Labels that sit off-canvas in the original slide: Discover · Define · Delivery -->
 
 <div class="absolute inset-0 flex items-center justify-center py-6">
   <div class="h-full w-[85%]">
@@ -770,10 +937,9 @@ Ask clearly what you want to satisfy your need
   </div>
 </div>
 
-<!--
-Labels that sit off-canvas in the original slide: Discover · Define · Delivery
--->
 
+---
+module: 7
 ---
 
 <!-- Slide 55 -->
@@ -792,6 +958,7 @@ Labels that sit off-canvas in the original slide: Discover · Define · Delivery
 </div>
 
 ---
+module: 7
 hide: true
 ---
 
@@ -808,6 +975,7 @@ hide: true
 </div>
 
 ---
+module: 7
 transition: fade
 ---
 
@@ -816,11 +984,15 @@ transition: fade
 <SignalFlow sender-label="Boss" receiver-label="Subordinate" sender-thought="Don’t understand the work, wanna ask" receiver-thought="Mauy is screwed" message="“Where is Mauy”" />
 
 ---
+module: 7
+---
 
 <!-- Slide 58 -->
 
 <SignalFlow sender-label="Boss" receiver-label="Subordinate" sender-thought="Don’t understand the work, wanna ask" receiver-thought="Boss wanna ask Mauy" message="“Where is Mauy? I don’t get some of this work, I want her knowledge”" />
 
+---
+module: 7
 ---
 
 <!-- Slide 59 -->
@@ -837,6 +1009,8 @@ Use “I” statement to communicate
 </div>
 
 ---
+module: 7
+---
 
 <!-- Slide 60 -->
 
@@ -851,10 +1025,12 @@ Use “I” statement to communicate
 </v-clicks>
 
 ---
+module: 8
+---
 
 <!-- Slide 61 -->
 
-<div class="absolute inset-0 flex items-center justify-center bg-white">
+<div class="absolute inset-0 flex items-center justify-center" style="background:#fff">
   <img src="/images/nvc-tree-of-life.jpg" class="h-full" alt="The NVC Tree of Life" v-motion :initial="{ opacity: 0, y: 40 }" :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }">
 </div>
 
@@ -863,6 +1039,7 @@ Draw Heart bridge
 -->
 
 ---
+module: 8
 class: thai-list
 ---
 
@@ -883,6 +1060,7 @@ class: thai-list
 -->
 
 ---
+module: 8
 class: thai-list
 ---
 
@@ -903,6 +1081,7 @@ class: thai-list
 -->
 
 ---
+module: 8
 class: thai-list
 ---
 
@@ -920,6 +1099,7 @@ class: thai-list
 -->
 
 ---
+module: 8
 class: thai-list
 ---
 
@@ -937,6 +1117,7 @@ class: thai-list
 -->
 
 ---
+module: 8
 class: thai-list
 ---
 
@@ -956,6 +1137,8 @@ class: thai-list
 พระมีความต้องการที่แท้จริง
 -->
 
+---
+module: 8
 ---
 
 <!-- Slide 67 -->
@@ -980,6 +1163,7 @@ class: thai-list
 </div>
 
 ---
+module: 8
 layout: center
 class: dark-slide
 transition: fade
