@@ -1,0 +1,272 @@
+/* ------------------------------------------------------------------
+   Nonviolent Communication — deck styling
+   Palette carried over from the original Google Slides deck.
+------------------------------------------------------------------- */
+:root {
+  --nvc-teal: #003d4f;
+  --nvc-teal-2: #0b5c72;
+  --nvc-amber: #cc850a;
+  --nvc-pink: #f2617a;
+  --nvc-purple: #634f7d;
+  --nvc-cream: #faf7f2;
+  --nvc-ink: #1d2a30;
+  --nvc-muted: #5f7076;
+}
+
+.slidev-layout {
+  background: var(--nvc-cream);
+  color: var(--nvc-ink);
+  font-family: Inter, 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+}
+
+.slidev-layout h1 {
+  font-family: Bitter, 'Noto Sans Thai', serif;
+  font-weight: 700;
+  font-size: 2.15rem;
+  line-height: 1.2;
+  color: var(--nvc-teal);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+}
+.slidev-layout h1::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 4px;
+  margin-top: 0.7rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--nvc-pink), var(--nvc-amber));
+}
+.slidev-layout h1 + p { opacity: 1; margin-top: 0; }
+
+.slidev-layout p,
+.slidev-layout li { line-height: 1.65; font-size: 1.3rem; }
+.slidev-layout li { margin: 0.35rem 0; }
+
+/* photo-background cover slides */
+.slidev-layout.photo-cover h1 { color: #fff !important; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.slidev-layout.photo-cover li { color: #fff; font-size: 1.4rem; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); }
+
+/* Thai notes slides */
+.thai-list li { font-size: 1.55rem; }
+.slidev-layout ul li::marker { color: var(--nvc-pink); }
+.slidev-layout ol li::marker { color: var(--nvc-pink); font-weight: 700; }
+.slidev-layout strong { color: var(--nvc-teal); font-weight: 700; }
+.slidev-layout a { color: var(--nvc-pink); border-bottom: 1px dashed currentColor; }
+
+/* ---------- dark / section slides ---------- */
+.slidev-layout.dark-slide {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(242, 97, 122, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(204, 133, 10, 0.16), transparent 45%),
+    var(--nvc-teal);
+  color: #fff;
+}
+.slidev-layout.dark-slide h1 { color: #fff; font-size: 3rem; }
+.slidev-layout.dark-slide strong { color: #fff; }
+.dark-slide .subtitle {
+  color: var(--nvc-pink);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+.brand-logo {
+  position: absolute;
+  right: 2.2rem;
+  bottom: 1.6rem;
+  width: 190px;
+}
+
+/* ---------- big bullet list on dark half (jackal / giraffe) ---------- */
+.animal-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 4.5rem;
+}
+.animal-list li {
+  font-family: Bitter, serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.animal-list li::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--nvc-pink);
+  flex: none;
+}
+
+/* ---------- "Observation or Interpretation?" style quiz slides ---------- */
+.quiz h1 { font-size: 1.9rem; }
+.quiz .q {
+  margin-top: 5.5rem;
+  text-align: center;
+  font-family: Bitter, 'Noto Sans Thai', serif;
+  font-size: 2.6rem;
+  line-height: 1.35;
+  color: var(--nvc-teal);
+}
+
+/* ---------- NVC components ---------- */
+.c-amber { background: var(--nvc-amber); }
+.c-teal { background: var(--nvc-teal); }
+.c-pink { background: var(--nvc-pink); }
+.c-purple { background: var(--nvc-purple); }
+
+.components-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.components-row > div {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.components-row .num {
+  font-family: Bitter, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.compare-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 18%;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.compare-grid > div {
+  color: #fff;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  padding: 1.2rem 0.6rem 2rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.compare-grid .neq {
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.footer-note {
+  position: absolute;
+  left: 2.3rem;
+  bottom: 0.7rem;
+  font-size: 0.6rem;
+  color: var(--nvc-muted);
+  z-index: 2;
+}
+.components-row ~ .footer-note,
+.compare-grid ~ .footer-note { color: rgba(255, 255, 255, 0.75); }
+
+/* ---------- two-column "phrase" slides ---------- */
+.phrases li {
+  background: #fff;
+  border-left: 4px solid var(--nvc-pink);
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  margin: 0.55rem 0;
+  list-style: none;
+  box-shadow: 0 2px 8px rgba(0, 61, 79, 0.06);
+}
+.phrases ul { padding-left: 0; }
+
+/* ---------- media ---------- */
+.photo-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1a1e;
+}
+.photo-center img {
+  height: 100%;
+  object-fit: contain;
+}
+.source-url {
+  font-size: 0.55rem;
+  line-height: 1.3;
+  color: var(--nvc-muted);
+  word-break: break-all;
+}
+
+/* ---------- dialogue ---------- */
+.bubble {
+  display: inline-block;
+  font-size: 1.15rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 14px;
+  margin: 0.25rem 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 61, 79, 0.08);
+}
+.bubble.him { border-bottom-left-radius: 4px; }
+.bubble.her { border-bottom-right-radius: 4px; background: #e8f1f3; }
+.bubble b { color: var(--nvc-teal); }
+
+.card {
+  font-size: 1.1rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  box-shadow: 0 6px 22px rgba(0, 61, 79, 0.08);
+}
+.card.bad { border-top: 5px solid var(--nvc-pink); }
+.card.good { border-top: 5px solid #2f9e74; }
+
+/* ---------- PLATO ---------- */
+.plato-list { list-style: none; padding: 0; }
+.plato-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1.25rem;
+  margin: 0.55rem 0;
+}
+.plato-list .letter {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: Bitter, serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* ---------- quote ---------- */
+.rumi {
+  font-family: Bitter, serif;
+  font-size: 2.3rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+.rumi-by {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: var(--nvc-pink);
+  font-family: Bitter, serif;
+}
