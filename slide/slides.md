@@ -210,7 +210,7 @@ module: 2
   <div class="c-req">
     <span>Requests</span>
     <span class="neq" v-click="4">≠</span>
-    <span v-click="4">Commands/Demands</span>
+    <span v-click="4">Commands/<br>Demands</span>
   </div>
 </div>
 
