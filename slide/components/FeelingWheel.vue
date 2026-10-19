@@ -9,8 +9,10 @@
 //     fades, and the word is shown large in the side panel
 //   • click any word → zoom into that whole category; click again (or Esc) to reset
 //
-// <FeelingWheel lang="th" /> shows the Thai version (side panel also shows English).
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+//   • EN / ไทย button (top right of the wheel) switches the language;
+//     in Thai the side panel also shows the English word.
+// <FeelingWheel lang="th" /> starts in Thai.
+import { computed, onBeforeUnmount, onMounted, ref, useId } from 'vue'
 import { useSlideContext } from '@slidev/client'
 
 const props = withDefaults(defineProps<{ lang?: 'en' | 'th' }>(), { lang: 'en' })
@@ -130,8 +132,15 @@ const TH: Record<string, string> = {
   'Busy': 'ยุ่ง', 'Rushed': 'เร่งรีบ', 'Pressured': 'ถูกกดดัน',
   'Bored': 'เบื่อ', 'Apathetic': 'เฉยชา', 'Indifferent': 'ไม่แยแส',
 }
-const isTh = computed(() => props.lang === 'th')
-const clipId = `fw-clip-${props.lang}`
+const lang = ref<'en' | 'th'>(props.lang)
+const isTh = computed(() => lang.value === 'th')
+const swapping = ref(false)
+function setLang(l: 'en' | 'th') {
+  if (l === lang.value) return
+  swapping.value = true
+  setTimeout(() => { lang.value = l; swapping.value = false }, 160)
+}
+const clipId = `fw-clip-${useId()}`
 const t = (en: string) => (isTh.value ? TH[en] ?? en : en)
 
 const C = 500
@@ -255,7 +264,11 @@ const play = computed(() =>
 </script>
 
 <template>
-  <div class="fw" :class="{ th: isTh }">
+  <div class="fw" :class="{ th: isTh, swapping }">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button :class="{ on: !isTh }" @click.stop="setLang('en')">EN</button>
+      <button :class="{ on: isTh }" @click.stop="setLang('th')">ไทย</button>
+    </div>
     <svg class="wheel" :class="{ play, active }" viewBox="0 0 1000 1000" role="img" :aria-label="isTh ? 'วงล้อความรู้สึก' : 'Feelings wheel'" @click.self="reset">
       <defs><clipPath :id="clipId"><circle :cx="C" :cy="C" r="499" /></clipPath></defs>
       <rect x="0" y="0" width="1000" height="1000" fill="transparent" @click="reset" />
@@ -322,6 +335,23 @@ text {
 .play .mids { animation: w-in .7s cubic-bezier(.2,.8,.2,1) .25s both; }
 .play .outers { animation: w-in .8s cubic-bezier(.2,.8,.2,1) .5s both; }
 @keyframes w-in { from { opacity: 0; transform: rotate(-25deg) scale(.85); } to { opacity: 1; transform: none; } }
+
+/* language switch (sits in the empty space right of the wheel) */
+.lang-toggle {
+  position: absolute; left: calc(100% + 1rem); top: 6%;
+  display: flex; padding: 3px; gap: 2px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 999px;
+  box-shadow: var(--shadow); z-index: 5;
+}
+.lang-toggle button {
+  font: 700 0.85rem/1 Inter, Sarabun, sans-serif; color: var(--muted);
+  padding: 0.42rem 0.85rem; border-radius: 999px; cursor: pointer;
+  background: transparent; border: none; transition: background .2s, color .2s;
+}
+.lang-toggle button.on { background: var(--m); color: #fff; }
+.lang-toggle button:not(.on):hover { color: var(--ink); }
+.wheel text, .panel { transition: opacity .16s ease; }
+.swapping .wheel text, .swapping .panel { opacity: 0; }
 
 /* side panel (sits in the empty space left of the wheel) */
 .panel {

@@ -488,25 +488,9 @@ module: 4
 https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A
 
 Anger, Sadness, Fear. Joy
--->
 
----
-module: 4
----
-
-<!-- Added: Thai version of slide 27 (วงล้อความรู้สึก) -->
-<div class="absolute inset-0 flex flex-col items-center pt-9 pb-2">
-  <div class="flex-1 min-h-0 aspect-square">
-    <FeelingWheel lang="th" />
-  </div>
-  <div class="source-url mt-2"><a href="https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A" target="_blank">https://themighty.com/2018/11/i-feel-nothing-wheel-of-emotions/?utm_source=Mighty_MH_Page&utm_medium=Facebook&utm_campaign=Link_Contributor&fbclid=IwAR3HoqAjzo-aKHyD0jbSwDeKePGTKgEyTdPjgqiEu1nVPaxL_EAtNJ5ef7A</a></div>
-</div>
-
-<!--
-วงล้อความรู้สึก (ฉบับภาษาไทย) — คำแปลเดียวกับวงล้อภาษาอังกฤษในสไลด์ก่อนหน้า
-ชี้ที่คำเพื่อเน้น (แผงด้านซ้ายแสดงคำไทยพร้อมคำภาษาอังกฤษ) · คลิกเพื่อซูมหมวด · กด Esc เพื่อกลับ
-
-โกรธ · เศร้า · กลัว · มีความสุข (Anger, Sadness, Fear. Joy)
+(EN / ไทย button at the top right of the wheel switches to the Thai version: โกรธ · เศร้า · กลัว · มีความสุข.
+Hover a word to highlight it, click to zoom into its category, Esc to reset.)
 -->
 
 ---
