@@ -183,6 +183,18 @@ module: 2
 
 </v-clicks>
 
+<!--
+หลักการ (Principles)
+1. มนุษย์ทุกคนมีความสามารถที่จะมีความกรุณาและเห็นอกเห็นใจผู้อื่น
+   (All human beings have the capacity for compassion)
+2. ทุกการกระทำคือความพยายามที่จะตอบสนองความต้องการบางอย่าง
+   (All actions are attempts to meet needs)
+3. ให้คุณค่ากับความต้องการของทุกคน
+   (Value needs of everyone)
+4. ใส่ใจความสัมพันธ์และความเข้าใจกันเป็นอันดับแรก
+   (Pay attention to relationship and understanding first)
+-->
+
 ---
 module: 2
 ---
@@ -409,6 +421,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Lately we are so distant”</div>
 
+<QuizAnswer v-click type="obs" :pick="1" better="“We’ve had dinner together once in the last two weeks.”"><b>“Distant”</b> is our evaluation of the relationship, and <b>“lately”</b> is vague. Nobody could check it with a camera.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Interpretation
+Why: “Distant” is our evaluation of the relationship, and “lately” is vague. Nobody could check it with a camera.
+Better way to say it: “We’ve had dinner together once in the last two weeks.”
+-->
+
 ---
 module: 3
 class: quiz
@@ -419,6 +440,15 @@ class: quiz
 # Observation or Interpretation?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“You didn’t send the report to me”</div>
+
+<QuizAnswer v-click type="obs" :pick="0" note="mostly" better="“I haven’t received the report that was due yesterday.”">A <b>specific, checkable fact</b> with no judgement. Cleaner still: say what <i>you</i> noticed and when — maybe it was sent but got lost.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Observation (mostly)
+Why: A specific, checkable fact with no judgement. Cleaner still: say what you noticed and when — maybe it was sent but got lost.
+Better way to say it: “I haven’t received the report that was due yesterday.”
+-->
 
 ---
 module: 3
@@ -431,6 +461,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“You always come to meeting late”</div>
 
+<QuizAnswer v-click type="obs" :pick="1" better="“You arrived after the start of the last three meetings.”"><b>“Always”</b> is a generalisation — always / never / ever mix evaluation into observation and invite defensiveness.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Interpretation
+Why: “Always” is a generalisation — always / never / ever mix evaluation into observation and invite defensiveness.
+Better way to say it: “You arrived after the start of the last three meetings.”
+-->
+
 ---
 module: 3
 class: quiz
@@ -441,6 +480,15 @@ class: quiz
 # Observation or Interpretation?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Customer is too picky”</div>
+
+<QuizAnswer v-click type="obs" :pick="1" better="“The customer asked for five changes to the design this week.”"><b>“Too picky”</b> is a judgement about the customer, not something they did.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Interpretation
+Why: “Too picky” is a judgement about the customer, not something they did.
+Better way to say it: “The customer asked for five changes to the design this week.”
+-->
 
 ---
 module: 3
@@ -514,6 +562,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I am confused”</div>
 
+<QuizAnswer v-click type="feel" :pick="0" better="“I feel confused about what we agreed for the next step.”"><b>Confused</b> describes my own inner state and is on the NVC feelings list — no story about anyone else.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Feeling
+Why: Confused describes my own inner state and is on the NVC feelings list — no story about anyone else.
+Better way to say it: “I feel confused about what we agreed for the next step.”
+-->
+
 ---
 module: 4
 class: quiz
@@ -524,6 +581,15 @@ class: quiz
 # Feeling or Thinking?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel like I was blamed”</div>
+
+<QuizAnswer v-click type="feel" :pick="1" better="“I feel hurt and frustrated.”"><b>“I feel like …”</b> introduces a thought, and <b>“blamed”</b> is what I think someone did to me — a faux feeling.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Thinking
+Why: “I feel like …” introduces a thought, and “blamed” is what I think someone did to me — a faux feeling.
+Better way to say it: “I feel hurt and frustrated.”
+-->
 
 ---
 module: 4
@@ -536,6 +602,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I didn’t feel right”</div>
 
+<QuizAnswer v-click type="feel" :pick="1" note="too vague" better="“I felt uneasy and uncomfortable.”"><b>“Right”</b> is an evaluation, not an emotion — the listener can’t tell what is going on inside me.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Thinking (too vague)
+Why: “Right” is an evaluation, not an emotion — the listener can’t tell what is going on inside me.
+Better way to say it: “I felt uneasy and uncomfortable.”
+-->
+
 ---
 module: 4
 class: quiz
@@ -547,6 +622,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel like you don’t love me”</div>
 
+<QuizAnswer v-click type="feel" :pick="1" better="“I feel sad and lonely.”"><b>“I feel like you …”</b> is a guess about the other person’s mind, not my feeling.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Thinking
+Why: “I feel like you …” is a guess about the other person’s mind, not my feeling.
+Better way to say it: “I feel sad and lonely.”
+-->
+
 ---
 module: 4
 class: quiz
@@ -557,6 +641,15 @@ class: quiz
 # Feeling or Thinking?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I feel abandoned”</div>
+
+<QuizAnswer v-click type="feel" :pick="1" note="faux feeling" better="“I feel lonely and scared.”"><b>“Abandoned”</b> says what I believe someone did to me. The feelings underneath are often scared, lonely or sad (see the faux-feelings table).</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Thinking (faux feeling)
+Why: “Abandoned” says what I believe someone did to me. The feelings underneath are often scared, lonely or sad (see the faux-feelings table).
+Better way to say it: “I feel lonely and scared.”
+-->
 
 ---
 module: 4
@@ -630,7 +723,43 @@ module: 5
 
 # Needs ≠ How
 
-Need often not clearly expressed
+<p class="nh-sub">Need often not clearly expressed</p>
+
+<div class="nh-cols">
+  <div v-click="1" class="nh-card need">
+    <div class="nh-head"><span class="pill need">Need</span><span class="nh-q">the <b>why</b> — what I want to have fulfilled</span></div>
+    <ul>
+      <li><b>Universal</b> — every human has it</li>
+      <li><b>Abstract</b> — no person, place, action, time or object</li>
+      <li>Can be met in <b>many different ways</b></li>
+    </ul>
+    <div class="nh-eg">connection · rest · respect · safety · trust · fun</div>
+  </div>
+  <div v-click="1" class="nh-card how">
+    <div class="nh-head"><span class="pill req">How (strategy)</span><span class="nh-q">the <b>how</b> — what I want someone to do</span></div>
+    <ul>
+      <li><b>Specific</b> — has PLATO (who, where, what, when…)</li>
+      <li><b>One way</b> among many to meet a need</li>
+      <li>Can become a <b>request</b> — and others can say no</li>
+    </ul>
+    <div class="nh-eg">“You call me every night at 9” · “a day off on Friday”</div>
+  </div>
+</div>
+
+<div class="nh-tests">
+  <div class="nh-tests-title" v-click="2">How to tell which one?</div>
+  <div class="nh-test" v-click="2"><span class="n">1</span><div><b>PLATO test</b> — any <i>Person, Location, Action, Time or Object</i> in it? → it’s a <b>how</b>.</div></div>
+  <div class="nh-test" v-click="3"><span class="n">2</span><div><b>Everyone test</b> — would every human, anywhere, need this? Yes → it’s a <b>need</b>.</div></div>
+  <div class="nh-test" v-click="4"><span class="n">3</span><div><b>“What would that give me?”</b> — ask it of a how, again and again, until you reach a word on the needs list.</div></div>
+</div>
+
+<div v-click="5" class="nh-ladder">
+  <span class="step how">“I need you to call me every night”</span>
+  <span class="arr">what would that give me? →</span>
+  <span class="step mid">“knowing you’re OK”</span>
+  <span class="arr">→</span>
+  <span class="step need">reassurance · connection</span>
+</div>
 
 <!--
 https://www.cnvc.org/Training/needs-inventory
@@ -651,6 +780,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I need you to send the report by Friday”</div>
 
+<QuizAnswer v-click type="need" :pick="1" better="“I need predictability. Would you be willing to send it by Friday?”">It has PLATO — <b>you · send · report · Friday</b> — so it is a strategy. The need underneath might be <b>predictability</b> or <b>support</b>.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: How (strategy)
+Why: It has PLATO — you · send · report · Friday — so it is a strategy. The need underneath might be predictability or support.
+Better way to say it: “I need predictability. Would you be willing to send it by Friday?”
+-->
+
 ---
 module: 5
 class: quiz
@@ -661,6 +799,15 @@ class: quiz
 # Needs or How?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Somsri needs empathy”</div>
+
+<QuizAnswer v-click type="need" :pick="0" better="“I need to be heard and understood.” (in Somsri’s own words)"><b>Empathy</b> is a universal need. It doesn’t say who must give it, or how, when or where — no PLATO.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Need
+Why: Empathy is a universal need. It doesn’t say who must give it, or how, when or where — no PLATO.
+Better way to say it: “I need to be heard and understood.” (in Somsri’s own words)
+-->
 
 ---
 module: 5
@@ -673,6 +820,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“I need money”</div>
 
+<QuizAnswer v-click type="need" :pick="1" better="“I need security for my family.”"><b>Money</b> is an object (the O in PLATO) — one way to meet needs like <b>security</b>, <b>freedom</b> or <b>ease</b>.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: How (strategy)
+Why: Money is an object (the O in PLATO) — one way to meet needs like security, freedom or ease.
+Better way to say it: “I need security for my family.”
+-->
+
 ---
 module: 5
 class: quiz
@@ -683,6 +839,15 @@ class: quiz
 # Needs or How?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“We don’t want heartless people”</div>
+
+<QuizAnswer v-click type="need" :pick="1" note="really a judgement" better="“We value care and consideration for each other.”">Not a need: <b>“heartless”</b> labels people and says what we <i>don’t</i> want. The need behind it might be <b>care</b> or <b>consideration</b>.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: How (strategy) (really a judgement)
+Why: Not a need: “heartless” labels people and says what we don’t want. The need behind it might be care or consideration.
+Better way to say it: “We value care and consideration for each other.”
+-->
 
 ---
 module: 5
@@ -869,6 +1034,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Please understand me”</div>
 
+<QuizAnswer v-click type="req" :pick="0" note="but not clear yet" better="“Would you be willing to tell me back what you heard me say?”">It is asking, not ordering — but there is <b>no concrete action</b>, so the other person can’t know when they’ve done it.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Request (but not clear yet)
+Why: It is asking, not ordering — but there is no concrete action, so the other person can’t know when they’ve done it.
+Better way to say it: “Would you be willing to tell me back what you heard me say?”
+-->
+
 ---
 module: 6
 class: quiz
@@ -880,6 +1054,15 @@ class: quiz
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Let me be myself”</div>
 
+<QuizAnswer v-click type="req" :pick="1" note="sounds like one" better="“Would you be willing to let me plan my own tasks this sprint?”"><b>“Let me …”</b> is phrased as an order with no room for “no”, and it is vague. A request is specific, doable, and OK to decline.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Command / Demand (sounds like one)
+Why: “Let me …” is phrased as an order with no room for “no”, and it is vague. A request is specific, doable, and OK to decline.
+Better way to say it: “Would you be willing to let me plan my own tasks this sprint?”
+-->
+
 ---
 module: 6
 class: quiz
@@ -890,6 +1073,15 @@ class: quiz
 # Is this request clear and practical?
 
 <div class="q" v-motion :initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">“Can I discuss with you<br>about measurement plan<br>for half an hour?”</div>
+
+<QuizAnswer v-click type="req" :pick="0" note="clear and practical" better="“Could we discuss the measurement plan for half an hour this afternoon?”">It names the <b>action</b> (discuss), the <b>topic</b> and the <b>time</b> (half an hour), and the other person can say yes or no.</QuizAnswer>
+
+<!--
+Ask the audience first, then click to reveal.
+Answer: Request (clear and practical)
+Why: It names the action (discuss), the topic and the time (half an hour), and the other person can say yes or no.
+Better way to say it: “Could we discuss the measurement plan for half an hour this afternoon?”
+-->
 
 ---
 module: 6
@@ -1014,11 +1206,27 @@ module: 8
 
 <!-- Slide 61 -->
 
-<div class="absolute inset-0 flex items-center justify-center" style="background:#fff">
-  <img src="/images/nvc-tree-of-life.jpg" class="h-full" alt="The NVC Tree of Life" v-motion :initial="{ opacity: 0, y: 40 }" :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }">
+<!-- Original tree illustration of "Three Focus Options for Connection".
+     Content credit: "The NVC Tree of Life" © 2008 Inbal Kashtan, BayNVC.
+     The "Original" toggle on the slide shows the original image (public/images/nvc-tree-of-life.jpg). -->
+<NvcTree />
+
+<!--
+Draw Heart bridge
+-->
+
+---
+module: 8
+---
+
+<!-- Added: original image of slide 61 (The NVC Tree of Life) -->
+<div class="absolute inset-0 flex flex-col items-center pt-9 pb-1">
+  <img src="/images/nvc-tree-of-life.jpg" class="flex-1 min-h-0 rounded-xl" style="box-shadow: var(--shadow); background:#fff" alt="The NVC Tree of Life (original)" v-motion :initial="{ opacity: 0, y: 24 }" :enter="{ opacity: 1, y: 0, transition: { duration: 700 } }">
+  <div class="source-url mt-1">“The NVC Tree of Life” © 2008 by Inbal Kashtan · www.cnvc.org · www.baynvc.org</div>
 </div>
 
 <!--
+Original image of The NVC Tree of Life (same content as the previous slide).
 Draw Heart bridge
 -->
 

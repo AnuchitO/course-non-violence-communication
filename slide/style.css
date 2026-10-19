@@ -154,12 +154,12 @@ html.dark .brand-logo { filter: none; opacity: 0.9; }
 .quiz h1 { font-size: 1.7rem; }
 .quiz .q {
   position: relative;
-  margin: 4.2rem auto 0;
+  margin: 1.6rem auto 0;
   max-width: 44rem;
-  padding: 2.2rem 2.6rem 2.2rem 3.4rem;
+  padding: 1.6rem 2.6rem 1.6rem 3.4rem;
   text-align: center;
   font-family: var(--serif);
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   line-height: 1.35;
   font-weight: 500;
   color: var(--ink);
@@ -398,3 +398,42 @@ html.dark .rumi-by { color: color-mix(in srgb, var(--m) 55%, #ffffff); }
 .need-callout .answer { font-size: 1.12rem; font-weight: 600; margin-bottom: 0.35rem; }
 .need-callout .answer b { color: color-mix(in srgb, var(--c-need) 70%, var(--ink)); }
 .need-callout .chips span.on { background: var(--c-need); color: #fff; border-color: var(--c-need); }
+
+/* ---------- Needs ≠ How explainer ---------- */
+.nh-sub { margin: -0.6rem 0 0.6rem; color: var(--muted); font-size: 1.05rem !important; }
+.nh-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.nh-card {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 16px;
+  padding: 0.55rem 0.9rem 0.6rem; box-shadow: var(--shadow);
+}
+.nh-card.need { border-top: 5px solid var(--c-need); }
+.nh-card.how { border-top: 5px solid var(--c-req); }
+.nh-head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.nh-head .pill { font-size: 0.82rem; }
+.nh-q { font-size: 0.85rem; color: var(--muted); }
+.nh-q b { color: var(--ink); }
+.nh-card ul { margin: 0.35rem 0 0.3rem; padding-left: 1.1rem; }
+.nh-card li { font-size: 0.92rem !important; margin: 0.12rem 0 !important; line-height: 1.35 !important; }
+.nh-card.need li::marker { color: var(--c-need); }
+.nh-card.how li::marker { color: var(--c-req); }
+.nh-card.need b { color: color-mix(in srgb, var(--c-need) 75%, var(--ink)); }
+.nh-card.how b { color: var(--c-req); }
+.nh-eg { font-size: 0.8rem; color: var(--muted); font-style: italic; border-top: 1px dashed var(--rule); padding-top: 0.3rem; }
+.nh-tests { margin-top: 0.6rem; display: grid; gap: 0.3rem; }
+.nh-tests-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.nh-test { display: flex; align-items: flex-start; gap: 0.55rem; font-size: 0.92rem; line-height: 1.35; }
+.nh-test .n {
+  flex: none; width: 1.45rem; height: 1.45rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--m); color: #fff; font-weight: 800; font-size: 0.8rem;
+}
+.nh-test b { color: var(--ink); }
+.nh-ladder {
+  margin-top: 0.6rem; display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;
+  padding: 0.45rem 0.7rem; border-radius: 14px; background: color-mix(in srgb, var(--m) 10%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--m) 30%, transparent);
+}
+.nh-ladder .step { font-size: 0.9rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--card); }
+.nh-ladder .step.how { color: var(--c-req); border: 1px solid color-mix(in srgb, var(--c-req) 45%, transparent); }
+.nh-ladder .step.mid { color: var(--ink); border: 1px dashed var(--rule); }
+.nh-ladder .step.need { color: #fff; background: var(--c-need); }
+.nh-ladder .arr { font-size: 0.78rem; color: var(--muted); font-weight: 600; }

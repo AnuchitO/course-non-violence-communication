@@ -9,6 +9,8 @@
 //     fades, and the word is shown large in the side panel
 //   • click any word → zoom into that whole category; click again (or Esc) to reset
 //
+//   • search box (EN or ไทย, with autocomplete): matches light up as you type;
+//     pick a result to pin it, zoom to its category and show it in the side panel
 //   • EN / ไทย button (top right of the wheel) switches the language;
 //     in Thai the side panel also shows the English word.
 // <FeelingWheel lang="th" /> starts in Thai.
@@ -202,10 +204,55 @@ const byKey = computed(() => {
 
 // ---------- interaction ----------
 const hover = ref<Seg | null>(null)
+const pinned = ref<Seg | null>(null)   // chosen from the search box
 const focus = ref<number | null>(null) // focused core index (zoomed)
+const current = computed(() => hover.value ?? pinned.value)
+
+// ---------- search (EN or TH) ----------
+const query = ref('')
+const open = ref(false)
+const activeIdx = ref(0)
+const allSegs = computed(() => [...shapes.value.cores, ...shapes.value.mids, ...shapes.value.outers])
+const q = computed(() => query.value.trim().toLowerCase())
+const isHit = (s: Seg) => !!q.value && (s.en.toLowerCase().includes(q.value) || (TH[s.en] ?? '').includes(q.value))
+const hits = computed(() => {
+  if (!q.value) return [] as Seg[]
+  const starts = (s: Seg) => s.en.toLowerCase().startsWith(q.value) || (TH[s.en] ?? '').startsWith(q.value)
+  const rank = { core: 0, mid: 1, outer: 2 }
+  return allSegs.value.filter(isHit).sort((a, b) => Number(starts(b)) - Number(starts(a)) || rank[a.level] - rank[b.level])
+})
+// matched segments + their parents (core / middle ring) stay bright
+const hitKeys = computed(() => {
+  const k = new Set<string>()
+  for (const h of hits.value) {
+    k.add(h.key); k.add(`c${h.ci}`)
+    if (h.level === 'outer') k.add(`m${h.mi}`)
+  }
+  return k
+})
+const pathOf = (s: Seg) => {
+  const p = [WHEEL[s.ci].name]
+  if (s.level === 'outer') p.push(shapes.value.mids[s.mi].en)
+  return p
+}
+function onInput() { open.value = true; activeIdx.value = 0; pinned.value = null; focus.value = null }
+function choose(s: Seg) {
+  pinned.value = s
+  focus.value = s.ci
+  query.value = t(s.en)
+  open.value = false
+}
+function clearSearch() { query.value = ''; pinned.value = null; focus.value = null; open.value = false }
+function onSearchKey(e: KeyboardEvent) {
+  const list = hits.value.slice(0, 12)
+  if (e.key === 'ArrowDown') { e.preventDefault(); open.value = true; activeIdx.value = Math.min(activeIdx.value + 1, list.length - 1) }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx.value = Math.max(activeIdx.value - 1, 0) }
+  else if (e.key === 'Enter') { e.preventDefault(); if (list[activeIdx.value]) choose(list[activeIdx.value]) }
+  else if (e.key === 'Escape') { clearSearch(); (e.target as HTMLInputElement).blur() }
+}
 
 function lit(s: Seg) {
-  const h = hover.value
+  const h = current.value
   if (h) {
     if (s.ci !== h.ci) return false
     if (s.level === 'core') return true
@@ -213,15 +260,16 @@ function lit(s: Seg) {
     if (s.level === 'mid') return s.mi === h.mi
     return h.level === 'mid' ? s.mi === h.mi : s.oi === h.oi
   }
+  if (q.value && hits.value.length) return hitKeys.value.has(s.key)
   if (focus.value !== null) return s.ci === focus.value
   return true
 }
-const active = computed(() => hover.value !== null || focus.value !== null)
+const active = computed(() => current.value !== null || focus.value !== null || hits.value.length > 0)
 
 function onClick(s: Seg) {
   focus.value = focus.value === s.ci ? null : s.ci
 }
-function reset() { focus.value = null; hover.value = null }
+function reset() { focus.value = null; hover.value = null; pinned.value = null; query.value = ''; open.value = false }
 const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') reset() }
 onMounted(() => window.addEventListener('keydown', onKey))
 onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
@@ -237,7 +285,7 @@ const zoom = computed(() => {
 
 // side panel content
 const panel = computed(() => {
-  const h = hover.value
+  const h = current.value
   if (h) {
     const core = WHEEL[h.ci]
     const path: string[] = [core.name]
@@ -269,6 +317,28 @@ const play = computed(() =>
       <button :class="{ on: !isTh }" @click.stop="setLang('en')">EN</button>
       <button :class="{ on: isTh }" @click.stop="setLang('th')">ไทย</button>
     </div>
+    <div class="search" @click.stop>
+      <span class="icon">⌕</span>
+      <input
+        v-model="query" type="text" spellcheck="false" autocomplete="off"
+        :placeholder="isTh ? 'ค้นหาความรู้สึก…' : 'Search a feeling…'"
+        @input="onInput" @focus="open = !!query" @blur="open = false"
+        @keydown.stop="onSearchKey" @keyup.stop @keypress.stop
+      >
+      <button v-if="query" class="clear" title="Clear" @mousedown.prevent="clearSearch">×</button>
+      <div v-if="open && q" class="results">
+        <div v-if="!hits.length" class="empty">{{ isTh ? 'ไม่พบ' : 'No match' }}</div>
+        <div
+          v-for="(s, i) in hits.slice(0, 12)" :key="s.key" class="item" :class="{ on: i === activeIdx }"
+          @mousedown.prevent="choose(s)" @mouseenter="activeIdx = i"
+        >
+          <span class="dot" :style="{ background: WHEEL[s.ci].color }" />
+          <span class="main">{{ t(s.en) }}<small>{{ isTh ? s.en : TH[s.en] }}</small></span>
+          <span v-if="s.level !== 'core'" class="where">{{ pathOf(s).map(t).join(' › ') }}</span>
+        </div>
+        <div v-if="hits.length > 12" class="more">+{{ hits.length - 12 }}</div>
+      </div>
+    </div>
     <svg class="wheel" :class="{ play, active }" viewBox="0 0 1000 1000" role="img" :aria-label="isTh ? 'วงล้อความรู้สึก' : 'Feelings wheel'" @click.self="reset">
       <defs><clipPath :id="clipId"><circle :cx="C" :cy="C" r="499" /></clipPath></defs>
       <rect x="0" y="0" width="1000" height="1000" fill="transparent" @click="reset" />
@@ -277,8 +347,8 @@ const play = computed(() =>
           <g v-for="ring in (['outers', 'mids', 'cores'] as const)" :key="ring" class="ring" :class="ring">
             <g
               v-for="s in shapes[ring]" :key="s.key" class="seg"
-              :class="{ dim: !lit(s), hov: hover && hover.key === s.key }"
-              :style="hover && hover.key === s.key ? { transform: nudge(s.mid, s.level === 'core' ? 10 : 14) } : undefined"
+              :class="{ dim: !lit(s), hov: current && current.key === s.key, hit: !current && q && isHit(s) }"
+              :style="current && current.key === s.key ? { transform: nudge(s.mid, s.level === 'core' ? 10 : 14) } : undefined"
               @mouseenter="hover = s" @mouseleave="hover = null" @click.stop="onClick(s)"
             >
               <path :d="s.d" :fill="s.fill" />
@@ -352,6 +422,40 @@ text {
 .lang-toggle button:not(.on):hover { color: var(--ink); }
 .wheel text, .panel { transition: opacity .16s ease; }
 .swapping .wheel text, .swapping .panel { opacity: 0; }
+
+/* search box with autocomplete (right of the wheel, under the language switch) */
+.search {
+  position: absolute; left: calc(100% + 1rem); top: calc(6% + 2.9rem); width: 14rem; z-index: 6;
+}
+.search input {
+  width: 100%; padding: 0.5rem 1.9rem 0.5rem 1.9rem; border-radius: 999px;
+  font: 600 0.9rem/1.2 Inter, Sarabun, sans-serif; color: var(--ink);
+  background: var(--card); border: 1px solid var(--rule); box-shadow: var(--shadow); outline: none;
+}
+.search input:focus { border-color: var(--m); box-shadow: 0 0 0 3px color-mix(in srgb, var(--m) 25%, transparent); }
+.search input::placeholder { color: var(--muted); font-weight: 500; }
+.search .icon { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-52%); font-size: 1rem; color: var(--muted); pointer-events: none; }
+.search .clear {
+  position: absolute; right: 0.45rem; top: 50%; transform: translateY(-50%);
+  width: 1.3rem; height: 1.3rem; border-radius: 50%; border: none; cursor: pointer;
+  background: color-mix(in srgb, var(--muted) 25%, transparent); color: var(--ink); font-size: 0.9rem; line-height: 1;
+}
+.results {
+  position: absolute; top: calc(100% + 0.35rem); left: 0; right: 0; max-height: 16rem; overflow-y: auto;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px; box-shadow: var(--shadow); padding: 0.3rem;
+}
+.results .item {
+  display: grid; grid-template-columns: auto 1fr; column-gap: 0.5rem; align-items: center;
+  padding: 0.35rem 0.55rem; border-radius: 10px; cursor: pointer;
+}
+.results .item.on { background: color-mix(in srgb, var(--m) 14%, transparent); }
+.results .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; grid-row: span 2; }
+.results .main { font-size: 0.92rem; font-weight: 700; color: var(--ink); }
+.results .main small { font-weight: 500; color: var(--muted); margin-left: 0.4rem; font-size: 0.78rem; }
+.results .where { grid-column: 2; font-size: 0.7rem; color: var(--muted); }
+.results .empty, .results .more { padding: 0.35rem 0.6rem; font-size: 0.78rem; color: var(--muted); }
+.seg.hit path { stroke: #1b2a41; stroke-width: 3; }
+.seg.hit text { font-weight: 800; }
 
 /* side panel (sits in the empty space left of the wheel) */
 .panel {
